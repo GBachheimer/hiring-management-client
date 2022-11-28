@@ -47,9 +47,6 @@ export default function Navbar(props) {
                             <button type="button" className = "btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div className = "offcanvas-body">
-                            <ul className = "navbar-nav justify-content-end flex-grow-1 pe-3">
-                                <NavLink className = "navbar-brand mx-4 p-1" to = "/" style = {{fontSize: "0.8rem"}}>Home</NavLink>
-                            </ul>
                             {(!user || (user && !user.emailVerified)) && <ul className = "navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <NavLink className = "buttonStyleNavbar mx-2 p-1" aria-current = "page" to = "/signup">Sign up</NavLink>
                                 <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/login">Login</NavLink>
