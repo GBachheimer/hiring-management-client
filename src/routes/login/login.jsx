@@ -24,8 +24,7 @@ export default function Login() {
         event.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const user = userCredential.user;
-                if (!user.emailVerified) {
+                if (!userCredential.user.emailVerified) {
                     setMessage("Please verify your email!");
                     return;
                 }
@@ -53,9 +52,7 @@ export default function Login() {
         event.preventDefault();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result.user.email);
-                setEmail(result.user.email);
-                saveUserToFirestore();
+                saveUserToFirestore(result.user.email);
                 navigate("/overview");
             })
             .catch((error) => {
@@ -64,7 +61,7 @@ export default function Login() {
             });
     };
 
-    const saveUserToFirestore = async() => {
+    async function saveUserToFirestore(email) {
         try {
             await setDoc(doc(db, "users", email), {
                 admin: false

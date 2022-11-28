@@ -23,11 +23,10 @@ export default function SignUp() {
         event.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredentials) => {
-                const user = userCredentials.user;
-                if (user) {
+                if (userCredentials.user) {
                     resendVerificationEmail();
-                    saveUserToFirestore();
-                }
+                    saveUserToFirestore(userCredentials.user);
+                };
             })
             .then(() => {
                 document.getElementById("infoAlert").style.color = "#60ff44";
@@ -75,9 +74,7 @@ export default function SignUp() {
         event.preventDefault();
         signInWithPopup(auth, provider)
             .then((result) => {
-                // console.log(result);
-                setEmail(result.user.email);
-                saveUserToFirestore();
+                saveUserToFirestore(result.user.email);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -85,13 +82,13 @@ export default function SignUp() {
             });
     };
 
-    const saveUserToFirestore = async() => {
+    async function saveUserToFirestore(email) {
         try {
             await setDoc(doc(db, "users", email), {
                 admin: false
             });
         } catch (error) {
-            console.loog(error);
+            console.log(error);
         }
     };
 
