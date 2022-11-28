@@ -52,10 +52,10 @@ export default function Login() {
     const googleSignin = (event) => {
         event.preventDefault();
         signInWithPopup(auth, provider)
-            .then(async (result) => {
-                console.log(result.user);
-                await setEmail(result.user.email);
-                await saveUserToFirestore();
+            .then((result) => {
+                console.log(result.user.email);
+                setEmail(result.user.email);
+                saveUserToFirestore();
                 navigate("/overview");
             })
             .catch((error) => {

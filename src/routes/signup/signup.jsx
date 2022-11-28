@@ -74,9 +74,9 @@ export default function SignUp() {
     const googleSignUp = (event) => {
         event.preventDefault();
         signInWithPopup(auth, provider)
-            .then(async (result) => {
+            .then((result) => {
                 // console.log(result);
-                await setEmail(result.user.email);
+                setEmail(result.user.email);
                 saveUserToFirestore();
             })
             .catch((error) => {
