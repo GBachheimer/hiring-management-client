@@ -75,8 +75,8 @@ export default function SignUp() {
         event.preventDefault();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result);
-                // setEmail(currentUser.providerData[0].email);
+                // console.log(result);
+                setEmail(result.user.email);
                 saveUserToFirestore();
             })
             .catch((error) => {
