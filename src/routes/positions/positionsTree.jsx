@@ -218,9 +218,6 @@ export default function PositionsTree() {
                 {data && <div className = "progress" style = {{width: "50%", marginTop: "10px", marginLeft: "25%"}}>
                     <div className = "progress-bar progress-bar-striped progressColor" role = "progressbar" aria-label = "Success striped example" style = {{width: `${progress}%`}} aria-valuenow = "25" aria-valuemin = "0" aria-valuemax = "100">{progress}%</div>
                 </div>}
-                {!data && <div className = "spinner-grow text-warning position-absolute start-50 top-50 translate-middle" role = "status">
-                    <span className = "visually-hidden">Loading...</span>
-                </div>}
                 {positions && <div className = "row mx-2">
                     {positions.map((position, id) => {
                         return (
@@ -235,6 +232,9 @@ export default function PositionsTree() {
             {window.innerWidth > 768 ? <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
             </video> : null}
+            {!data && <div className = "spinner-grow text-warning position-absolute start-50 top-50 translate-middle" role = "status">
+                <span className = "visually-hidden">Loading...</span>
+            </div>}
         </div>
     );
 }
