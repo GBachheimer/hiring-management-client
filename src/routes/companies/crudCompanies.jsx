@@ -21,7 +21,6 @@ export default function CrudCompanies() {
     const [state, setState] = useState("");
     const [show, setShow] = useState(false);
     const ref = useRef();
-    const vidRef = useRef();
     const [companyInfo, setCompanyInfo] = useState();
     const [toggleAnim, setToggleAnim] = useState();
     const [animateHide, setAnimateHide] = useState(true);

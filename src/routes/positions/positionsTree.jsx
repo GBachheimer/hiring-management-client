@@ -44,7 +44,7 @@ export default function PositionsTree() {
             getAllPositions();
             setMessage("");
         }
-    }, [coName, coId]);
+    }, [coId]);
 
     const getAllPositions = () => {
         Axios.get("https://recruitment-co-management.onrender.com/positions/list/" + coId).then((res) => {
@@ -175,11 +175,11 @@ export default function PositionsTree() {
 
     const determineShowHide = () => {
         if(!showAddForm) {
-            setTimeout(() => {setShowAddForm(true)}, 200);
             setAnimate(true);
+            setTimeout(() => {setShowAddForm(true)}, 200);
         } else {
-            setTimeout(() => {setShowAddForm(!showAddForm)}, 200);
             setAnimate(false);
+            setTimeout(() => {setShowAddForm(!showAddForm)}, 200);
         };
     };
 
@@ -230,9 +230,9 @@ export default function PositionsTree() {
             {window.innerWidth > 768 ? <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
             </video> : null}
-            {!data && <div className = "spinner-grow text-warning position-absolute start-50 top-50 translate-middle" role = "status">
+            {/* {!data && <div className = "spinner-grow text-warning position-absolute start-50 top-50 translate-middle" role = "status">
                 <span className = "visually-hidden">Loading...</span>
-            </div>}
+            </div>} */}
         </div>
     );
 }
