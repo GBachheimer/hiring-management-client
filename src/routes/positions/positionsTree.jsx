@@ -25,7 +25,6 @@ export default function PositionsTree() {
     const location = useLocation();
 
     useEffect(() => {
-        setMessage
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(location.state) {
