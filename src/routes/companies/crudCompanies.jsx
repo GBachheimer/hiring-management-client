@@ -306,9 +306,9 @@ export default function CrudCompanies() {
                         })}
             </select>}
             {companyInfo && !show && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
-            {myVideo && window.innerWidth > 768 ? <video id = "background-video" autoPlay muted>
+            {window.innerWidth > 768 ? myVideo && <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
-            </video> : <div id = "background-video backgroundPicture"></div> }
+            </video> : null }
         </div>
     );
 }

@@ -232,9 +232,9 @@ export default function PositionsTree() {
                 </div>
                 }
             </div>}
-            <video id = "background-video" autoPlay muted>
+            {window.innerWidth > 768 ? <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
-            </video>
+            </video> : null}
         </div>
     );
 }

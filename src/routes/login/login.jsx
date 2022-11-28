@@ -53,12 +53,23 @@ export default function Login() {
         signInWithPopup(auth, provider)
             .then(() => {
                 navigate("/overview");
+                saveUserToFirestore();
             })
             .catch((error) => {
                 const errorCode = error.code;
                 console.log(errorCode);
             });
-    }
+    };
+
+    const saveUserToFirestore = async() => {
+        try {
+            await setDoc(doc(db, "users", email), {
+                admin: false
+            });
+        } catch (error) {
+            console.loog(error);
+        }
+    };
 
     return(
         <div className = "position-absolute top-50 start-50 translate-middle mainContainer">

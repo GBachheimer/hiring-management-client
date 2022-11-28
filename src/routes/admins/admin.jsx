@@ -129,9 +129,9 @@ export default function Admin() {
                     </tbody>
                 </table>}
             </div>
-            <video className = "background-video" autoPlay muted loop>
+            {window.innerWidth > 768 ? <video className = "background-video" autoPlay muted loop>
                     <source src = {myVideo} type="video/mp4"></source>
-            </video>
+            </video> : null }
         </div>
     );
 }
