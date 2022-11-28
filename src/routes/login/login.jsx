@@ -52,7 +52,7 @@ export default function Login() {
     const googleSignin = (event) => {
         event.preventDefault();
         signInWithPopup(auth, provider)
-            .then(() => {
+            .then((result) => {
                 setEmail(result.user.email);
                 saveUserToFirestore();
                 navigate("/overview");
