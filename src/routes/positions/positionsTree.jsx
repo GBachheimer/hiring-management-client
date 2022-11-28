@@ -186,8 +186,7 @@ export default function PositionsTree() {
     return(
         <div className = "treeContainer" style = {{color: "white"}}>
             <p id = "message">{message}</p>
-            {!showAddForm ? <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Add a new position to this Company</button> :
-            <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Hide form</button>}
+            {!showAddForm ? <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Add a new position to this Company</button> : <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Hide form</button>}
             {showAddForm ? <div id = "addPosContainer" className = {animate ? "grow" : "shrink"}>
                 <label className = "addPositionLabel" htmlFor = "positionName">Open Position Name*:</label>
                 <input className = "addPositionInput" type = "text" value = {position} onChange = {event => setPosition(event.target.value)} required></input>
@@ -204,20 +203,20 @@ export default function PositionsTree() {
                 </select>}
                 {!edit && <button className = "btn btn-light addPosBtn" onClick = {handleAddPosition}>Add position to {coName}</button>}
                 {edit && <button className = "btn btn-light addPosBtn" onClick = {handleSaveEdit}>Save</button>}
-            </div>:
+            </div> :
             <div id = "selectCoInput" className = {!animate ? "grow" : "shrink"}>
                 <label className = "addPositionLabel" htmlFor = "coName">Select a company:</label>
-                {data && <select className = "addPositionInput" name = "coName" type = "text" value = {coName} onChange = {handleSelectChange}>
+                {coId && data && <select className = "addPositionInput" name = "coName" type = "text" value = {coName} onChange = {handleSelectChange}>
                     {data.map((company, key) => {
                         return (
                             <option key = {key} value = {company.co_name}>{company.co_name}</option>
                             );
                         })}
                 </select>}
-                {data && <div className = "progress" style = {{width: "50%", marginTop: "10px", marginLeft: "25%"}}>
+                {coId && data && <div className = "progress" style = {{width: "50%", marginTop: "10px", marginLeft: "25%"}}>
                     <div className = "progress-bar progress-bar-striped progressColor" role = "progressbar" aria-label = "Success striped example" style = {{width: `${progress}%`}} aria-valuenow = "25" aria-valuemin = "0" aria-valuemax = "100">{progress}%</div>
                 </div>}
-                {positions && <div className = "row mx-2">
+                {coId && positions && <div className = "row mx-2">
                     {positions.map((position, id) => {
                         return (
                             <div key = {Math.random()} className = {!animate ? "col-sm-4 grow" : "col-sm-4 shrink"}>
