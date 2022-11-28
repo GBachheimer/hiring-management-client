@@ -1,0 +1,157 @@
+.treeContainer {
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 90%;
+}
+
+.addDeadlineLabel {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-size: 0.6rem;
+}
+
+#tableBody {
+    font-size: 0.6rem;
+}
+
+.addDeadlineInput {
+    font-size: 0.6rem;
+    display: block;
+    width: 300px;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+textarea {
+    min-height: 100px;
+}
+
+#addPosContainer {
+    width: 100%;
+    font-size: 0.6rem;
+    text-align: center;
+    color: white;
+}
+
+#selectCoInput {
+    margin-bottom: 10px;
+    margin-top: -25px;
+}
+
+.addPositionInput {
+    font-size: 0.6rem;
+    display: block;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.addPositionLabel {
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-size: 0.6rem;
+}
+
+.addPosBtn {
+    font-size: 0.6rem;
+    margin-top: 10px;
+}
+
+.actionBtn {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: #f7adff;
+    text-align: center;
+    font-size: 0.6rem;
+}
+
+.showFormBtn {
+    font-size: 0.6rem;
+    margin-top: 10px;
+}
+
+.positionCardStyle {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    margin: 2px;
+    font-size: 0.6rem;
+    border: none;
+}
+
+.positionCardStyle:hover {
+    transform-origin: top center;
+	animation: swing 0.3s ease;
+}
+
+@keyframes swing {
+	33% { transform: rotate(1deg); }	
+	66% { transform: rotate(-1deg); }	
+	100% { transform: rotate(0deg); }
+}
+
+.magnifyInfo {
+    font-size: 0.6rem;
+    transition: font-size 0.5s;
+}
+
+.magnifyInfo:hover {
+    font-size: 0.7rem;
+}
+
+.listStyle {
+    border-radius: 2%;
+}
+
+.occupiedPosition {
+    color: rgb(255, 44, 44);
+}
+
+.openPosition {
+    color: rgb(0, 129, 30);
+}
+
+.linesStyle {
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.grow {
+    animation: grow 0.4s ease;
+}
+
+@keyframes grow {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.progressColor {
+    background-color: #00561e;
+}
+
+.scaleStyle {
+    scale: 0;
+}
+
+.shrink {
+    animation: shrink 0.4s ease;
+}
+
+@keyframes shrink {
+    from { transform: scale(1); }
+    to { transform: scale(0); }
+}
+
+

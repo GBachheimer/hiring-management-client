@@ -1,0 +1,87 @@
+.adminContainer {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    font-size: 0.6rem;
+    margin-top: 10px;
+}
+
+.adminActions {
+    font-size: 0.6rem;
+    margin: 10px;
+    margin-top: -10px;
+}
+
+table {
+    width: 100%;
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+}
+
+.adminEmail {
+    color: #000000;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    padding: 5px;
+}
+
+.adminEmailLabel {
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+}
+
+.userListStyle {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.userListStyle:hover {
+    color: rgb(255, 255, 255);
+}
+
+.fade-in-left {
+    animation: fade-in-left 2s ease;
+  }
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .fade-in-right {
+    animation: fade-in-right 2s ease;
+  }
+  @keyframes fade-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }

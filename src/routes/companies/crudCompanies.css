@@ -1,0 +1,186 @@
+.hideShowBtn {
+    margin-top: 10px;
+    font-size: 0.6rem;
+}
+
+.addCoInput {
+    font-size: 0.6rem;
+    display: block;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 5px;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.addCoLabel {
+    margin-bottom: 2px;
+    color: white;
+    font-size: 0.6rem;
+}
+
+#addCompanyBtn, #editCompanyBtn {
+    font-size: 0.6rem;
+    margin-top: 10px;
+}
+
+#coTableBody {
+    font-size: 0.6rem;
+}
+
+#addCompanyContainer {
+    margin-top: 10px;
+    font-size: 0.6rem;
+    width: 99%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#message {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+#displayAllContainer {
+    width: 80%;
+    max-height: 300px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    
+}
+
+.btnStyle {
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    color: rgb(247, 173, 255);
+    text-align: center;
+}
+
+.carouselStyle {
+    font-size: 0.6rem;
+}
+
+.cardBtn {
+    font-size: 0.6rem;
+}
+
+.listStyle {
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.showCoCard {
+    margin-bottom: 10px;
+} 
+
+.cardStyle {
+    font-size: 0.6rem;
+    width: 50%;
+    margin: auto;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+  }
+
+.rotate-in-up-left {
+    animation: rotate-in-up-left 0.6s ease;
+  }
+  @keyframes rotate-in-up-left {
+    0% {
+      scale: 0;
+      transform-origin: left bottom;
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+    100% {
+        scale: 1;
+      transform-origin: left bottom;
+      transform: rotate(0);
+      opacity: 1;
+    }
+  }
+
+  .rotate-in-up-right {
+    animation: rotate-in-up-right 0.6s ease;
+  }
+  @keyframes rotate-in-up-right {
+    0% {
+      scale: 0;
+      transform-origin: right bottom;
+      transform: rotate(-90deg);
+      opacity: 0;
+    }
+    100% {
+        scale: 1;
+      transform-origin: right bottom;
+      transform: rotate(0);
+      opacity: 1;
+    }
+  }
+
+
+#selectCoName {
+    margin-bottom: 20px;
+}
+
+.rotate-out-down-left {
+    animation: rotate-out-down-left 0.6s ease;
+  }
+  @keyframes rotate-out-down-left {
+    0% {
+      scale: 1;
+      transform-origin: left bottom;
+      transform: rotate(0);
+      opacity: 1;
+    }
+    100% {
+      scale: 0;
+      transform-origin: left bottom;
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+  }
+
+  .rotate-out-down-right {
+    animation: rotate-out-down-right 0.6s ease;
+  }
+  @keyframes rotate-out-down-right {
+    0% {
+      scale: 1;
+      transform-origin: right bottom;
+      transform: rotate(0);
+      opacity: 1;
+    }
+    100% {
+        scale: 0;
+      transform-origin: right bottom;
+      transform: rotate(-90deg);
+      opacity: 0;
+    }
+  }
+
+  #background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
