@@ -62,12 +62,18 @@ export default function Login() {
     };
 
     async function saveUserToFirestore(email) {
-        try {
-            await setDoc(doc(db, "users", email), {
-                admin: false
-            });
-        } catch (error) {
-            console.log(error);
+        const newUserRef = doc(db, "users", email);
+        const docSnap = await getDoc(newUserRef);
+        if (docSnap.exists()) {
+            return;
+        } else {
+            try {
+                await setDoc(doc(db, "users", email), {
+                    admin: false
+                });
+            } catch (error) {
+                console.log(error);
+            }
         }
     };
 
@@ -75,9 +81,9 @@ export default function Login() {
         <div className = "position-absolute top-50 start-50 translate-middle mainContainer">
             <form className = "formStyle">
                 <label htmlFor = "email" className = "labelSignUp">Email:</label>
-                <input type = "email" onChange = {handleEmail} value = {email} placeholder = "example@gmail.com" required className = "inputSignUp" autoComplete = "true"></input>
+                <input type = "email" onChange = {handleEmail} value = {email} placeholder = "example@gmail.com" required className = "inputSignUp" autoComplete = "on"></input>
                 <label htmlFor = "password" className = "labelSignUp">Password:</label>
-                <input type = "password" onChange = {handlePassword} value = {password} required className = "inputSignUp" autoComplete = "true"></input>
+                <input type = "password" onChange = {handlePassword} value = {password} required className = "inputSignUp" autoComplete = "on"></input>
                 <p id = "infoAlert" className = "messageSignUp">{message}</p>
                 <button className = "btn btn-dark submitButton" onClick = {handleSubmit}>Login</button>&nbsp;
                 <button className = "linkStyle or" disabled> or </button>&nbsp;

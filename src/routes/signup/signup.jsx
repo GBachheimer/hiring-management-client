@@ -25,7 +25,7 @@ export default function SignUp() {
             .then((userCredentials) => {
                 if (userCredentials.user) {
                     resendVerificationEmail();
-                    saveUserToFirestore(userCredentials.user);
+                    saveUserToFirestore(email);
                 };
             })
             .then(() => {
@@ -83,22 +83,28 @@ export default function SignUp() {
     };
 
     async function saveUserToFirestore(email) {
-        try {
-            await setDoc(doc(db, "users", email), {
-                admin: false
-            });
-        } catch (error) {
-            console.log(error);
-        }
+        const newUserRef = doc(db, "users", email);
+        const docSnap = await getDoc(newUserRef);
+        if (docSnap.exists()) {
+            return;
+        } else {
+            try {
+                await setDoc(doc(db, "users", email), {
+                    admin: false
+                });
+            } catch (error) {
+                console.log(error);
+            }
+        }    
     };
 
     return(
         <div className = "position-absolute top-50 start-50 translate-middle mainContainer">
             <form className = "formStyle">
                 <label htmlFor = "email" className = "labelSignUp">Email:</label>
-                <input type = "email" id = "email" name = "email" placeholder = "example@gmail.com" onChange = {handleEmail} required className = "inputSignUp" autoComplete = "true"></input>
+                <input type = "email" id = "email" name = "email" placeholder = "example@gmail.com" onChange = {handleEmail} required className = "inputSignUp" autoComplete = "on"></input>
                 <label htmlFor = "password" className = "labelSignUp">Password:</label>
-                <input type = "password" id = "password" name = "password" onChange = {handlePassword} required className = "inputSignUp" autoComplete = "true"></input>
+                <input type = "password" id = "password" name = "password" onChange = {handlePassword} required className = "inputSignUp" autoComplete = "on"></input>
                 <p id = "infoAlert" className = "messageSignUp">{message}</p>
                 <button className = "btn btn-dark submitButton" onClick = {handleSubmit}>Sign up</button>&nbsp;
                 <button className = "linkStyle or" disabled> or </button>&nbsp;
