@@ -1,11 +1,9 @@
-import { auth, provider } from "../../components/firebase";
+import { auth, provider, db } from "../../components/firebase";
 import { createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./signup.css";
 import { setDoc, doc } from "firebase/firestore";
-import { db } from "../../components/firebase";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
@@ -77,7 +75,8 @@ export default function SignUp() {
         event.preventDefault();
         signInWithPopup(auth, provider)
             .then((result) => {
-                setEmail(currentUser.providerData[0].email);
+                console.log(result);
+                // setEmail(currentUser.providerData[0].email);
                 saveUserToFirestore();
             })
             .catch((error) => {

@@ -53,7 +53,7 @@ export default function Login() {
         event.preventDefault();
         signInWithPopup(auth, provider)
             .then(() => {
-                setEmail(currentUser.providerData[0].email);
+                // setEmail(currentUser.providerData[0].email);
                 saveUserToFirestore();
                 navigate("/overview");
             })
