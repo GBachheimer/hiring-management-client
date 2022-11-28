@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, sendEmailVerification, signInWithPopup 
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./signup.css";
-import { setDoc, doc } from "firebase/firestore";
+import { setDoc, doc, getDoc } from "firebase/firestore";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");

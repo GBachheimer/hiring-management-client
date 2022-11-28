@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, provider, db } from "../../components/firebase";
 import { Link, useNavigate } from "react-router-dom";
 import "../signup/signup.css";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 export default function Login() {
     const [email, setEmail] = useState("");
