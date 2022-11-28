@@ -15,6 +15,16 @@
     * {
       font-size: 1rem;
     }
+
+    .showFormBtn {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .addPosBtn {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
 }
 
 #tableBody {
@@ -47,7 +57,7 @@ textarea {
 
 #selectCoInput {
     margin-bottom: 10px;
-    margin-top: -25px;
+    margin-top: 10px;
 }
 
 .addPositionInput {

@@ -12,6 +12,12 @@
   * {
     font-size: 1rem;
   }
+
+  .adminActions {
+    font-size: 1rem;
+    margin: 10px;
+    margin-top: -10px;
+  }
 }
 
 .adminActions {
