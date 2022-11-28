@@ -25,6 +25,7 @@ export default function PositionsTree() {
     const location = useLocation();
 
     useEffect(() => {
+        setMessage
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(location.state) {
@@ -47,7 +48,6 @@ export default function PositionsTree() {
     }, [coName, coId]);
 
     const getAllPositions = () => {
-        setPosition();
         Axios.get("https://recruitment-co-management.onrender.com/positions/list/" + coId).then((res) => {
             setPositions(res.data.rows);
             totalOccupiedPositions = 0;
@@ -186,10 +186,10 @@ export default function PositionsTree() {
 
     return(
         <div className = "treeContainer" style = {{color: "white"}}>
-            {!showAddForm && <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Add a new position to this Company</button>}
-            {showAddForm && <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Hide form</button>}
             <p id = "message">{message}</p>
-            {showAddForm && <div id = "addPosContainer" className = {animate ? "grow" : "shrink"}>
+            {!showAddForm ? <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Add a new position to this Company</button> :
+            <button onClick = {handleShowHide} className = "btn btn-light showFormBtn">Hide form</button>}
+            {showAddForm ? <div id = "addPosContainer" className = {animate ? "grow" : "shrink"}>
                 <label className = "addPositionLabel" htmlFor = "positionName">Open Position Name*:</label>
                 <input className = "addPositionInput" type = "text" value = {position} onChange = {event => setPosition(event.target.value)} required></input>
                 <label className = "addPositionLabel" htmlFor = "link">Link to job description:</label>
@@ -205,8 +205,8 @@ export default function PositionsTree() {
                 </select>}
                 {!edit && <button className = "btn btn-light addPosBtn" onClick = {handleAddPosition}>Add position to {coName}</button>}
                 {edit && <button className = "btn btn-light addPosBtn" onClick = {handleSaveEdit}>Save</button>}
-            </div>}
-            {!showAddForm && <div id = "selectCoInput" className = {!animate ? "grow" : "shrink"}>
+            </div>:
+            <div id = "selectCoInput" className = {!animate ? "grow" : "shrink"}>
                 <label className = "addPositionLabel" htmlFor = "coName">Select a company:</label>
                 {data && <select className = "addPositionInput" name = "coName" type = "text" value = {coName} onChange = {handleSelectChange}>
                     {data.map((company, key) => {
