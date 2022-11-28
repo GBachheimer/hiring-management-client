@@ -25,7 +25,7 @@ export default function PositionsTree() {
     const location = useLocation();
 
     useEffect(() => {
-        Axios.get("http://localhost:5000/company/list").then((res) => {
+        Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(location.state) {
                 setCoName(location.state[0]);
@@ -48,7 +48,7 @@ export default function PositionsTree() {
 
     const getAllPositions = () => {
         setPosition();
-        Axios.get("http://localhost:5000/positions/list/" + coId).then((res) => {
+        Axios.get("https://recruitment-co-management.onrender.com/positions/list/" + coId).then((res) => {
             setPositions(res.data.rows);
             totalOccupiedPositions = 0;
             for(let i = 0; i < res.data.rows.length; ++i) {
@@ -82,7 +82,7 @@ export default function PositionsTree() {
                 return;
             }
         };
-        Axios.post("http://localhost:5000/positions/add/" + coId, {
+        Axios.post("https://recruitment-co-management.onrender.com/positions/add/" + coId, {
             position: position,
             description: description,
             deadline: deadline,
@@ -122,7 +122,7 @@ export default function PositionsTree() {
     };
 
     const handleSaveEdit = (event) => {
-        Axios.put("http://localhost:5000/positions/edit/" + id, {
+        Axios.put("https://recruitment-co-management.onrender.com/positions/edit/" + id, {
             position: position,
             description: description,
             deadline: deadline,
@@ -139,7 +139,7 @@ export default function PositionsTree() {
     };
 
     const handleDelete = (event) => {
-        Axios.delete("http://localhost:5000/positions/delete/" + event.target.id).then((res) => {
+        Axios.delete("https://recruitment-co-management.onrender.com/positions/delete/" + event.target.id).then((res) => {
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
             resetStates();

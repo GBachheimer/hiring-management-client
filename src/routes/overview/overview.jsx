@@ -8,7 +8,7 @@ export default function Overview() {
     const zoomEurope = 4;
 
     useEffect(() => {
-        Axios.get("http://localhost:5000/company/list").then((res) => {
+        Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setAllCoData(res.data.rows);
         }).catch((error) => {
             console.log(error);

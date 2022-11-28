@@ -46,7 +46,7 @@ export default function GoogleMapsInfo(props) {
         let progress = 0;
         let infowindow;
         
-        Axios.get("http://localhost:5000/positions/list/" + data[i].co_id).then((res) => {
+        Axios.get("https://recruitment-co-management.onrender.com/positions/list/" + data[i].co_id).then((res) => {
           positions = res.data;
           if(res.data != "Failed!" && stringX === "") {
             for(let j = 0; j < res.data.rows.length; ++j) {

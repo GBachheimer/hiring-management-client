@@ -63,7 +63,7 @@ export default function CrudCompanies() {
     }, [show]);
 
     const getAllCo = () => {
-        Axios.get("http://localhost:5000/company/list").then((res) => {
+        Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(!selectCoName) {
                 setSelectCoName(res.data.rows[0].co_name);
@@ -75,7 +75,7 @@ export default function CrudCompanies() {
     };
 
     const handleDelete = (event) => {
-        Axios.delete(`http://localhost:5000/company/delete/${event.target.id}`).then((res) => { 
+        Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
             setCompanyInfo(data[0]);
@@ -114,7 +114,7 @@ export default function CrudCompanies() {
         const addressToSearch = address.replace(" ", "+") + ",+" + city.replace(" ", "+") + ",+" + state.replace(" ", "+") + ",+" + country.replace(" ", "+");
         Axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + addressToSearch + "&key=" + process.env.REACT_APP_MY_API_KEY)
         .then((response) => {
-            Axios.put("http://localhost:5000/company/edit/" + id, { 
+            Axios.put("https://recruitment-co-management.onrender.com/company/edit/" + id, { 
                 companyName: companyName,
                 country: country,
                 city: city,
@@ -152,7 +152,7 @@ export default function CrudCompanies() {
         const addressToSearch = address.replace(" ", "+") + ",+" + city.replace(" ", "+") + ",+" + state.replace(" ", "+") + ",+" + country.replace(" ", "+");
         Axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=" + addressToSearch + "&key=" +   process.env.REACT_APP_MY_API_KEY)
         .then((response) => {
-            Axios.post("http://localhost:5000/company/add", { 
+            Axios.post("https://recruitment-co-management.onrender.com/company/add", { 
                 companyName: companyName,
                 country: country,
                 city: city,
