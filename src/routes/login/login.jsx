@@ -52,9 +52,10 @@ export default function Login() {
     const googleSignin = (event) => {
         event.preventDefault();
         signInWithPopup(auth, provider)
-            .then((result) => {
-                setEmail(result.user.email);
-                saveUserToFirestore();
+            .then(async (result) => {
+                console.log(result.user);
+                await setEmail(result.user.email);
+                await saveUserToFirestore();
                 navigate("/overview");
             })
             .catch((error) => {
@@ -69,7 +70,7 @@ export default function Login() {
                 admin: false
             });
         } catch (error) {
-            console.loog(error);
+            console.log(error);
         }
     };
 
@@ -77,9 +78,9 @@ export default function Login() {
         <div className = "position-absolute top-50 start-50 translate-middle mainContainer">
             <form className = "formStyle">
                 <label htmlFor = "email" className = "labelSignUp">Email:</label>
-                <input type = "email" onChange = {handleEmail} value = {email} placeholder = "example@gmail.com" required className = "inputSignUp"></input>
+                <input type = "email" onChange = {handleEmail} value = {email} placeholder = "example@gmail.com" required className = "inputSignUp" autoComplete = "true"></input>
                 <label htmlFor = "password" className = "labelSignUp">Password:</label>
-                <input type = "password" onChange = {handlePassword} value = {password} required className = "inputSignUp"></input>
+                <input type = "password" onChange = {handlePassword} value = {password} required className = "inputSignUp" autoComplete = "true"></input>
                 <p id = "infoAlert" className = "messageSignUp">{message}</p>
                 <button className = "btn btn-dark submitButton" onClick = {handleSubmit}>Login</button>&nbsp;
                 <button className = "linkStyle or" disabled> or </button>&nbsp;
