@@ -204,19 +204,19 @@ export default function PositionsTree() {
                 {!edit && <button className = "btn btn-light addPosBtn" onClick = {handleAddPosition}>Add position to {coName}</button>}
                 {edit && <button className = "btn btn-light addPosBtn" onClick = {handleSaveEdit}>Save</button>}
             </div> :
-            <div id = "selectCoInput" className = {!animate ? "grow" : "shrink"}>
+            positions && data && <div id = "selectCoInput" className = {!animate ? "grow" : "shrink"}>
                 <label className = "addPositionLabel" htmlFor = "coName">Select a company:</label>
-                {coId && data && <select className = "addPositionInput" name = "coName" type = "text" value = {coName} onChange = {handleSelectChange}>
+                <select className = "addPositionInput" name = "coName" type = "text" value = {coName} onChange = {handleSelectChange}>
                     {data.map((company, key) => {
                         return (
                             <option key = {key} value = {company.co_name}>{company.co_name}</option>
                             );
                         })}
-                </select>}
-                {coId && data && <div className = "progress" style = {{width: "50%", marginTop: "10px", marginLeft: "25%"}}>
+                </select>
+                <div className = "progress" style = {{width: "50%", marginTop: "10px", marginLeft: "25%"}}>
                     <div className = "progress-bar progress-bar-striped progressColor" role = "progressbar" aria-label = "Success striped example" style = {{width: `${progress}%`}} aria-valuenow = "25" aria-valuemin = "0" aria-valuemax = "100">{progress}%</div>
-                </div>}
-                {coId && positions && <div className = "row mx-2">
+                </div>
+                <div className = "row mx-2">
                     {positions.map((position, id) => {
                         return (
                             <div key = {Math.random()} className = {!animate ? "col-sm-4 grow" : "col-sm-4 shrink"}>
@@ -225,14 +225,14 @@ export default function PositionsTree() {
                         );
                     })}
                 </div>
-                }
+                
             </div>}
             {window.innerWidth > 768 ? <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
             </video> : null}
-            {/* {!data && <div className = "spinner-grow text-warning position-absolute start-50 top-50 translate-middle" role = "status">
+            {!data && <div className = "spinner-grow text-warning position-absolute start-50 top-50 translate-middle" role = "status">
                 <span className = "visually-hidden">Loading...</span>
-            </div>} */}
+            </div>}
         </div>
     );
 }
