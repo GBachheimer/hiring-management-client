@@ -53,8 +53,9 @@ export default function Login() {
         event.preventDefault();
         signInWithPopup(auth, provider)
             .then(() => {
-                navigate("/overview");
+                setEmail(currentUser.providerData[0].email);
                 saveUserToFirestore();
+                navigate("/overview");
             })
             .catch((error) => {
                 const errorCode = error.code;
