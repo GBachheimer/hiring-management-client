@@ -22,7 +22,7 @@ export default function CrudCompanies() {
     const [show, setShow] = useState(false);
     const ref = useRef();
     const [companyInfo, setCompanyInfo] = useState();
-    const [toggleAnim, setToggleAnim] = useState();
+    const [toggleAnim, setToggleAnim] = useState(false);
     const [animateHide, setAnimateHide] = useState(true);
 
     useEffect(() => {
@@ -208,7 +208,9 @@ export default function CrudCompanies() {
 
     const handleShowHide = () => {
         determineShowHide();
-        reset();
+        setTimeout(() => {
+            reset();
+        }, 200);
     };
 
     const handleSelectChanged = (event) => {
