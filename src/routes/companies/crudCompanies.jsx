@@ -130,10 +130,10 @@ export default function CrudCompanies() {
                 previousCoName: previousCoName
             }).then((res) => {
                 document.getElementById("message").style.color = "#007f0b";
-                setMessage(res.data);
                 reset();
-                determineShowHide();
                 getAllCo();
+                determineShowHide();
+                setMessage(res.data);
             }).catch((error) => {
                 console.log(error);
             })})

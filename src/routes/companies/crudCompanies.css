@@ -22,9 +22,6 @@
     margin-top: 10px;
 }
 
-#coTableBody {
-}
-
 #addCompanyContainer {
     margin-top: 10px;
     width: 99%;
@@ -57,12 +54,6 @@
     text-decoration: none;
     color: rgb(247, 173, 255);
     text-align: center;
-}
-
-.carouselStyle {
-}
-
-.cardBtn {
 }
 
 .listStyle {
@@ -186,7 +177,3 @@
       border: none;
     }
 }
-
-  .backgroundPicture {
-    background-image: url("./wallpaper.jpg");
-  }
