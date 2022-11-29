@@ -30,7 +30,6 @@ export default function CrudCompanies() {
     }, [selectCoName]);
 
     useEffect(() => {
-        getAllCo();
         const addressField = document.getElementById("address");
         let autocomplete = new window.google.maps.places.Autocomplete(addressField);
         autocomplete.addListener("place_changed", () => {
@@ -62,7 +61,6 @@ export default function CrudCompanies() {
     }, [show]);
 
     const getAllCo = () => {
-        setCompanyInfo();
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(!selectCoName) {
@@ -73,6 +71,10 @@ export default function CrudCompanies() {
             console.log(error);
         });
     };
+
+    useEffect(() => {
+        getAllCo();
+    }, []);
 
     const handleDelete = (event) => {
         Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
