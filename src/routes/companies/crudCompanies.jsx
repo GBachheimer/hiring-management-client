@@ -192,7 +192,6 @@ export default function CrudCompanies() {
 
     const determineShowHide = () => {
         if(!show) {
-            setMessage("");
             setAnimateHide(false);
             setTimeout(() => {
                 setShow(true);
@@ -204,13 +203,12 @@ export default function CrudCompanies() {
                 setShow(false);
             }, 200);
         };
+        setMessage("");
     };
 
     const handleShowHide = () => {
         determineShowHide();
-        setTimeout(() => {
-            reset();
-        }, 200);
+        reset();
     };
 
     const handleSelectChanged = (event) => {
@@ -306,7 +304,7 @@ export default function CrudCompanies() {
                             );
                         })}
             </select>}
-            {companyInfo && !show && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+            {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
             {window.innerWidth > 768 ? myVideo && <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
             </video> : null }
