@@ -59,6 +59,10 @@ export default function CrudCompanies() {
             setAddress(streetNr);
         });
     }, [show]);
+    
+    useEffect(() => {
+        getAllCo();
+    }, [editCompany, handleDelete, addCompany]);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
@@ -71,10 +75,6 @@ export default function CrudCompanies() {
             console.log(error);
         });
     };
-
-    useEffect(() => {
-        getAllCo();
-    }, []);
 
     const handleDelete = (event) => {
         Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
