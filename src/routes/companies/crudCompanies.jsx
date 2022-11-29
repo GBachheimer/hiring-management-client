@@ -62,7 +62,7 @@ export default function CrudCompanies() {
     
     useEffect(() => {
         getAllCo();
-    }, [editCompany, handleDelete, addCompany]);
+    }, [selectCoName]);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
