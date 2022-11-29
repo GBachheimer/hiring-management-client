@@ -90,8 +90,8 @@ export default function Admin() {
                 <label htmlFor = "adminEmail" className = "adminEmailLabel">Email:</label>
                 <input type = "email" placeholder = "example@gmail.com" name = "adminEmail" onChange = {handleAdminEmail} className = "adminEmail" value = {adminEmail} required></input>
                 <p style = {{marginTop: "10px", color: "white"}}>{message}</p>
-                <button onClick = {addAdmin} className = "btn btn-light adminActions">Make Admin</button>
-                <button onClick = {deleteAdmin} className = "btn btn-light adminActions">Revoke Admin Rights</button>
+                <button onClick = {addAdmin} className = "btn btn-light adminActions mx-1">Make Admin</button>
+                <button onClick = {deleteAdmin} className = "btn btn-light adminActions mx-1">Revoke Admin Rights</button>
             </div>
             <div>
                 {(allAdmins.length === 0) && <div className = "spinner-grow text-warning" role = "status">
