@@ -21,7 +21,7 @@ export default function Navbar(props) {
     return (
         <div>
             {window.innerWidth > 768 ? <nav className = "navbar navbar-dark bg-dark bg-opacity-50">
-                <NavLink className = "navbar-brand mx-4 p-1" to = "/" style = {{fontSize: "0.8rem"}}>Home</NavLink>
+                {/* <NavLink className = "navbar-brand mx-4 p-1" to = "/" style = {{fontSize: "0.8rem"}}>Home</NavLink> */}
                 {(!user || (user && !user.emailVerified)) && <div>
                     <NavLink className = "buttonStyleNavbar mx-2 p-1" aria-current = "page" to = "/signup">Sign up</NavLink>
                     <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/login">Login</NavLink>

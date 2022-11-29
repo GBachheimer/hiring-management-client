@@ -1,34 +1,33 @@
 .labelSignUp {
     display: block;
-    color: black;
     text-align: left;
     margin-top: 5px;
     margin-left: 5%;
-    font-size: 0.6rem;
 }
 
 @media only screen and (max-width: 600px) {
-    * {
-      font-size: 1rem;
+    .mainContainer {
+        background-color: black;
+        color: white;
+        position: absolute;
+        text-align: center;
+        width: 90%;
+        height: 70%;
+        overflow: hidden;
     }
 
-    .submitButton {
-        margin-bottom: 10px;
-        position: relative;
-        z-index: 2;
-        font-size: 1rem;
-        margin-top: -10px;
-    }
-
-    .resetPassBtn {
-        font-size: 1rem;
-        margin-top: -10px;
+    .mainContainerResetPass {
+        background-color: black;
+        color: white;
+        position: absolute;
+        text-align: center;
+        width: 90%;
+        height: 70%;
+        overflow: hidden;
     }
 }
 
 .inputSignUp {
-    background-color: black;
-    color: white;
     width: 90%;
     border-radius: 10px;
     border: none;
@@ -36,13 +35,12 @@
     margin-top: 5px;
     text-align: center;
     padding: 5px;
-    font-size: 0.6rem;
 }
 
 .messageSignUp {
     position: relative;
     z-index: 2;
-    color: black;
+    color: white;
     padding: 5px;
 }
 
@@ -54,13 +52,14 @@
 }
 
 .mainContainer {
+    background-color: black;
+    color: white;
     position: absolute;
     text-align: center;
     width: 400px;
     height: 300px;
     /* border: 5px solid black; */
     overflow: hidden;
-    font-size: 0.6rem;
 }
 
 .mainContainerResetPass {
@@ -69,26 +68,24 @@
     width: 350px;
     height: 200px;
     overflow: hidden;
-    font-size: 0.6rem;
 }
 
 .linkStyle {
     border: none;
     background-color: transparent;
     text-decoration: none;
-    color: black;
+    color: white;
     text-align: center;
 }
 
 .linkStyle:hover {
-    color: black;
+    color: white;
 }
 
 .submitButton {
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
-    font-size: 0.8rem;
     margin-top: -10px;
 }
 
@@ -136,27 +133,26 @@
 .mainContainer::after {
     content: "";
     position: absolute;
-    background: white;
+    background: black;
     inset: 3px;
 }
 
 .mainContainerResetPass::after {
     content: "";
     position: absolute;
-    background: white;
+    background: black;
     inset: 3px;
 }
 
 .imgStyle {
-    color: white;
+    color: black;
     margin-top: -10px;
 }
 
 .or:hover {
-    color: black;
+    color: white;
 }
 
 .resetPassBtn {
-    font-size: 0.8rem;
     margin-top: -10px;
 }

@@ -4,26 +4,10 @@
     width: 100%;
     height: 90%;
     overflow: hidden;
-    font-size: 0.6rem;
     margin-top: 10px;
 }
 
 @media only screen and (max-width: 600px) {
-  * {
-    font-size: 1rem;
-  }
-
-  .adminActions {
-    font-size: 1rem;
-    margin: 10px;
-    margin-top: -10px;
-  }
-}
-
-.adminActions {
-    font-size: 0.6rem;
-    margin: 10px;
-    margin-top: -10px;
 }
 
 table {

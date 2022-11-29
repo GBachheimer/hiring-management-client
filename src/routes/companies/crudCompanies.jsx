@@ -62,6 +62,7 @@ export default function CrudCompanies() {
     }, [show]);
 
     const getAllCo = () => {
+        setCompanyInfo();
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(!selectCoName) {
@@ -304,7 +305,7 @@ export default function CrudCompanies() {
                             );
                         })}
             </select>}
-            {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+            {!show && companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
             {window.innerWidth > 768 ? myVideo && <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
             </video> : null }

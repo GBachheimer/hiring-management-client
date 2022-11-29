@@ -1,10 +1,8 @@
 .hideShowBtn {
     margin-top: 10px;
-    font-size: 0.6rem;
 }
 
 .addCoInput {
-    font-size: 0.6rem;
     display: block;
     width: 300px;
     border-radius: 10px;
@@ -18,21 +16,17 @@
 .addCoLabel {
     margin-bottom: 2px;
     color: white;
-    font-size: 0.6rem;
 }
 
 #addCompanyBtn, #editCompanyBtn {
-    font-size: 0.6rem;
     margin-top: 10px;
 }
 
 #coTableBody {
-    font-size: 0.6rem;
 }
 
 #addCompanyContainer {
     margin-top: 10px;
-    font-size: 0.6rem;
     width: 99%;
     text-align: center;
     margin-bottom: 10px;
@@ -66,11 +60,9 @@
 }
 
 .carouselStyle {
-    font-size: 0.6rem;
 }
 
 .cardBtn {
-    font-size: 0.6rem;
 }
 
 .listStyle {
@@ -84,7 +76,6 @@
 } 
 
 .cardStyle {
-    font-size: 0.6rem;
     width: 50%;
     margin: auto;
     background-color: #ffffff;
@@ -186,28 +177,14 @@
   }
 
 @media only screen and (max-width: 600px) {
-    * {
-      font-size: 1rem;
-    }
-
     .cardStyle {
-      font-size: 0.6rem;
+
       width: 90%;
       margin: auto;
       background-color: #ffffff;
       color: rgb(0, 0, 0);
       border: none;
     }
-
-    .hideShowBtn {
-      margin-top: 10px;
-      font-size: 1rem;
-    }
-
-    #addCompanyBtn, #editCompanyBtn {
-      font-size: 1rem;
-      margin-top: 10px;
-  }
 }
 
   .backgroundPicture {

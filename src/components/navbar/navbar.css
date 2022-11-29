@@ -1,5 +1,4 @@
 .buttonStyleNavbar {
-    font-size: 0.8rem;
     border: none;
     background-color: transparent;
     text-decoration: none;
@@ -8,9 +7,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    * {
-      font-size: 1rem;
-    }
 
     .buttonStyleNavbar {
         font-size: 2rem;
