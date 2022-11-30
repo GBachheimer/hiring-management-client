@@ -16,6 +16,7 @@
 .addCoLabel {
     margin-bottom: 2px;
     color: white;
+    margin-top: 10px;
 }
 
 #addCompanyBtn, #editCompanyBtn {

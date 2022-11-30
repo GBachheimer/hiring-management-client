@@ -62,7 +62,7 @@ export default function CrudCompanies() {
     
     useEffect(() => {
         getAllCo();
-    }, []);
+    }, [show]);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
@@ -88,7 +88,7 @@ export default function CrudCompanies() {
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
             setCompanyInfo(data[0]);
-            getAllCo();
+            // getAllCo();
         }).catch((error) => {
             console.log(error);
         });
@@ -140,7 +140,7 @@ export default function CrudCompanies() {
                 reset();
                 determineShowHide();
                 setMessage(res.data);
-                getAllCo();
+                // getAllCo();
             }).catch((error) => {
                 console.log(error);
             })})
@@ -176,7 +176,7 @@ export default function CrudCompanies() {
                 document.getElementById("message").style.color = "#007f0b";
                 setMessage(res.data);
                 setShow(false);
-                getAllCo();
+                // getAllCo();
             }).catch((error) => {
                 console.log(error);
             })})
