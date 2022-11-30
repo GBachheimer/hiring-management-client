@@ -241,7 +241,7 @@ export default function CrudCompanies() {
                                 );
                             })}
                 </select>}
-                {data && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} companies = {data} companyName = {selectCoName} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+                {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
             </div> : <div style = {{textAlign: "center"}}>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>
                 <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
