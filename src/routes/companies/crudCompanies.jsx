@@ -72,7 +72,7 @@ export default function CrudCompanies() {
                 setCompanyInfo(res.data.rows[0]);
             } else {
                 for(let i = 0; i < res.data.rows.length; ++i) {
-                    if(res.data.rows[i].co_name === selectCoName) {
+                    if(res.data.rows[i].co_name === ref.current.value) {
                         console.log(res.data.rows);
                         setCompanyInfo(res.data.rows[i]);
                     }
@@ -95,6 +95,7 @@ export default function CrudCompanies() {
     };
 
     const handleEdit = (event) => {
+        setCompanyInfo();
         setEdit(true);
         setId(event.target.id);
         determineShowHide();
@@ -232,6 +233,7 @@ export default function CrudCompanies() {
 
     return (
         <div style = {{textAlign: "center"}}>
+            <p id = "message">{message}</p>
             {!show ? <div>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Add a new company</button>
                 {data && <label className = "addCoLabel" htmlFor = "coName">Select a company:</label>}
@@ -245,7 +247,6 @@ export default function CrudCompanies() {
                 {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
             </div> : <div>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>
-                <p id = "message">{message}</p>
                 <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
                     <label htmlFor = "companyName" className = "addCoLabel">Company Name*</label>
                     <input id = "co_name" className = "addCoInput" name = "companyName" type = "text" placeholder = "Example LLC" value = {companyName} onChange = {(event) => {setCompanyName(event.target.value)}} required></input>
