@@ -22,12 +22,12 @@ export default function CrudCompanies() {
     const [show, setShow] = useState(false);
     const ref = useRef();
     const [companyInfo, setCompanyInfo] = useState();
-    const [toggleAnim, setToggleAnim] = useState(false);
+    const [toggleAnim, setToggleAnim] = useState();
     const [animateHide, setAnimateHide] = useState(true);
 
     useEffect(() => {
         setToggleAnim(!toggleAnim);
-        // getAllCo();
+        getAllCo();
     }, [selectCoName]);
 
     useEffect(() => {
@@ -242,7 +242,7 @@ export default function CrudCompanies() {
                                 );
                             })}
                 </select>}
-                {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+                {companyInfo && <CompanyCard animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
             </div> : <div style = {{textAlign: "center"}}>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>
                 <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
