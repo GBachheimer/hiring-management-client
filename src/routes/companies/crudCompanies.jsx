@@ -21,14 +21,17 @@ export default function CrudCompanies() {
     const [state, setState] = useState("");
     const [show, setShow] = useState(false);
     const ref = useRef();
+    const [companyInfo, setCompanyInfo] = useState();
     const [toggleAnim, setToggleAnim] = useState(false);
     const [animateHide, setAnimateHide] = useState(true);
 
     useEffect(() => {
         setToggleAnim(!toggleAnim);
+        getAllCo();
     }, [selectCoName]);
 
     useEffect(() => {
+        getAllCo();
         const addressField = document.getElementById("address");
         let autocomplete = new window.google.maps.places.Autocomplete(addressField);
         autocomplete.addListener("place_changed", () => {
@@ -59,15 +62,17 @@ export default function CrudCompanies() {
         });
     }, [show]);
 
-    useEffect(() => {
-        getAllCo();
-    }, [edit]);
-
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
             setData(res.data.rows);
             if(!selectCoName) {
                 setSelectCoName(res.data.rows[0].co_name);
+            } else {
+                for(let i = 0; i < res.data.rows.length; ++i) {
+                    if(res.data.rows[i].co_name === selectCoName) {
+                        setCompanyInfo(res.data.rows[i]);
+                    }
+                }
             }
         }).catch((error) => {
             console.log(error);
@@ -78,6 +83,8 @@ export default function CrudCompanies() {
         Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
+            setSelectCoName(data[0].co_name);
+            setCompanyInfo(data[0]);
             getAllCo();
         }).catch((error) => {
             console.log(error);
@@ -128,10 +135,10 @@ export default function CrudCompanies() {
             }).then((res) => {
                 document.getElementById("message").style.color = "#007f0b";
                 setMessage(res.data);
-                getAllCo();
-            }).then(() => {
+                setSelectCoName(companyName);
                 reset();
                 determineShowHide();
+                getAllCo();
             }).catch((error) => {
                 console.log(error);
             })})
@@ -166,9 +173,8 @@ export default function CrudCompanies() {
             }).then((res) => {
                 document.getElementById("message").style.color = "#007f0b";
                 setMessage(res.data);
+                determineShowHide();
                 getAllCo();
-            }).then(() => {
-                setShow(false);
             }).catch((error) => {
                 console.log(error);
             })})
@@ -194,6 +200,7 @@ export default function CrudCompanies() {
 
     const determineShowHide = () => {
         if(!show) {
+            setMessage("");
             setAnimateHide(false);
             setTimeout(() => {
                 setShow(true);
@@ -205,7 +212,6 @@ export default function CrudCompanies() {
                 setShow(false);
             }, 200);
         };
-        setMessage("");
     };
 
     const handleShowHide = () => {
@@ -215,6 +221,11 @@ export default function CrudCompanies() {
 
     const handleSelectChanged = (event) => {
         setSelectCoName(event.target.value);
+        for(let i = 0; i < data.length; ++i) {
+            if(data[i].co_name === ref.current.value) {
+                setCompanyInfo(data[i]);
+            }
+        }
     };
 
     return (

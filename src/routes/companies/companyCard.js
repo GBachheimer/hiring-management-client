@@ -1,22 +1,7 @@
 import "./crudCompanies.css";
 import { Link} from "react-router-dom";
-import { useEffect, useState } from "react";
-import { refEqual } from "firebase/firestore";
 
 export default function CompanyCard(props) {
-    const [companyInfo, setCompanyInfo] = useState();
-
-    const getCompany = () => {
-        for (let i = 0; i < props.companies.length; ++i) {
-            if (props.companies[i].co_name === props.companyName) {
-                setCompanyInfo(props.companies[i]);
-            }
-        };
-    };
-
-    useEffect(() => {
-        getCompany();
-    }, [props]);
 
     return (
         companyInfo ? <div className = {!props.animateHide ? "card px-3 cardStyle rotate-out-down-left" : props.toggleAnim ? "card px-3 cardStyle rotate-in-up-right" : "card px-3 cardStyle rotate-in-up-left"}>
