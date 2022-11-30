@@ -62,7 +62,7 @@ export default function CrudCompanies() {
 
     useEffect(() => {
         getAllCo();
-    }, []);
+    }, [edit]);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
@@ -86,6 +86,7 @@ export default function CrudCompanies() {
         Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
+            setCompanyInfo();
             getAllCo();
         }).then(() => {
             setCompanyInfo(data[0]);
