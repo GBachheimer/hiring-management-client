@@ -27,7 +27,7 @@ export default function CrudCompanies() {
 
     useEffect(() => {
         setToggleAnim(!toggleAnim);
-        getAllCo();
+        // getAllCo();
     }, [selectCoName]);
 
     useEffect(() => {

@@ -55,7 +55,11 @@ export default function PositionsTree() {
                     ++totalOccupiedPositions;
                 }
             };
-            setProgress(parseInt(totalOccupiedPositions * 100 / res.data.rows.length));
+            if (parseInt(totalOccupiedPositions * 100 / res.data.rows.length) !== NaN) { 
+                setProgress(parseInt(totalOccupiedPositions * 100 / res.data.rows.length));
+            } else {
+                setProgress(0);
+            }
         }).catch((error) => {
             setPositions();
             console.log(error);
