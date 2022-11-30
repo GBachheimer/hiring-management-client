@@ -8,7 +8,7 @@ export default function CompanyCard(props) {
 
     const getCompany = () => {
         for (let i = 0; i < props.companies.length; ++i) {
-            if (props.companies[i].co_name === companyInfoName) {
+            if (props.companies[i].co_name === props.companyName) {
                 setCompanyInfo(props.companies[i]);
             }
         };
