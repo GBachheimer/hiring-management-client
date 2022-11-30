@@ -16,7 +16,7 @@ export default function CompanyCard(props) {
 
     useEffect(() => {
         getCompany();
-    });
+    }, [props]);
 
     return (
         companyInfo ? <div className = {!props.animateHide ? "card px-3 cardStyle rotate-out-down-left" : props.toggleAnim ? "card px-3 cardStyle rotate-in-up-right" : "card px-3 cardStyle rotate-in-up-left"}>
