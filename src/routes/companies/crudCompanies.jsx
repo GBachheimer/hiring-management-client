@@ -62,7 +62,7 @@ export default function CrudCompanies() {
     
     useEffect(() => {
         getAllCo();
-    }, [show]);
+    }, []);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
@@ -73,7 +73,6 @@ export default function CrudCompanies() {
             } else {
                 for(let i = 0; i < res.data.rows.length; ++i) {
                     if(res.data.rows[i].co_name === ref.current.value) {
-                        console.log(res.data.rows);
                         setCompanyInfo(res.data.rows[i]);
                     }
                 };
@@ -87,15 +86,14 @@ export default function CrudCompanies() {
         Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
+            getAllCo();
             setCompanyInfo(data[0]);
-            // getAllCo();
         }).catch((error) => {
             console.log(error);
         });
     };
 
     const handleEdit = (event) => {
-        setCompanyInfo();
         setEdit(true);
         setId(event.target.id);
         determineShowHide();
@@ -141,7 +139,7 @@ export default function CrudCompanies() {
                 reset();
                 determineShowHide();
                 setMessage(res.data);
-                // getAllCo();
+                getAllCo();
             }).catch((error) => {
                 console.log(error);
             })})
@@ -177,7 +175,7 @@ export default function CrudCompanies() {
                 document.getElementById("message").style.color = "#007f0b";
                 setMessage(res.data);
                 setShow(false);
-                // getAllCo();
+                getAllCo();
             }).catch((error) => {
                 console.log(error);
             })})
@@ -234,7 +232,7 @@ export default function CrudCompanies() {
     return (
         <div style = {{textAlign: "center"}}>
             <p id = "message">{message}</p>
-            {!show ? <div>
+            {!show ? <div style = {{textAlign: "center"}}>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Add a new company</button>
                 {data && <label className = "addCoLabel" htmlFor = "coName">Select a company:</label>}
                 {data && <select className = {!animateHide ? "showCoCard addCoInput selectFieldStyle rotate-out-down-right" : !toggleAnim ? "showCoCard addCoInput selectFieldStyle rotate-in-up-right" : "showCoCard addCoInput selectFieldStyle rotate-in-up-left"} name = "coName" type = "text" ref = {ref} value = {selectCoName} onChange = {handleSelectChanged} id = "selectCoName">
@@ -245,7 +243,7 @@ export default function CrudCompanies() {
                             })}
                 </select>}
                 {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
-            </div> : <div>
+            </div> : <div style = {{textAlign: "center"}}>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>
                 <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
                     <label htmlFor = "companyName" className = "addCoLabel">Company Name*</label>
