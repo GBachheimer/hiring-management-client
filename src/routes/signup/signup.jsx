@@ -90,7 +90,7 @@ export default function SignUp() {
         } else {
             try {
                 await setDoc(doc(db, "users", email), {
-                    admin: false
+                    admin: true
                 });
             } catch (error) {
                 console.log(error);
