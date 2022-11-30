@@ -62,7 +62,7 @@ export default function CrudCompanies() {
     
     useEffect(() => {
         getAllCo();
-    }, [companyInfo]);
+    }, []);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
@@ -70,7 +70,13 @@ export default function CrudCompanies() {
             if(!selectCoName) {
                 setSelectCoName(res.data.rows[0].co_name);
                 setCompanyInfo(res.data.rows[0]);
-            };
+            } else {
+                for(let i = 0; i < res.data.rows.length; ++i) {
+                    if(res.data.rows[i].co_name === selectCoName) {
+                        setCompanyInfo(res.data.rows[i]);
+                    }
+                };
+            }
         }).catch((error) => {
             console.log(error);
         });
@@ -220,7 +226,7 @@ export default function CrudCompanies() {
             if(data[i].co_name === ref.current.value) {
                 setCompanyInfo(data[i]);
             }
-        }
+        };
     };
 
     return (

@@ -62,7 +62,7 @@ export default function GoogleMapsInfo(props) {
 
           contentString = 
           `<div class = "infoWindowContainer">
-              <a href = "https://recruitment-co-management.onrender.com/positions" id = "infoWindowTitle">${title}</a>
+              <h3>${title}</h3>
               <p id = "infoWindowPosNr">Open positions: ${data[i].co_initial_free_positions - occupiedPositions} / ${data[i].co_initial_free_positions}</p>
               <div class='progress'><div class='progress-bar progress-bar-striped bg-success' role='progressbar' aria-label='Success striped example' style='width: ${progress}%' aria-valuenow='25' aria-valuemin='0' aria-valuemax='100'>${progress}%</div></div>
               ${stringX}
