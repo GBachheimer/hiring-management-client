@@ -67,6 +67,7 @@ export default function CrudCompanies() {
             setData(res.data.rows);
             if(!selectCoName) {
                 setSelectCoName(res.data.rows[0].co_name);
+                setCompanyInfo(res.data.rows[0]);
             } else {
                 for(let i = 0; i < res.data.rows.length; ++i) {
                     if(res.data.rows[i].co_name === selectCoName) {
