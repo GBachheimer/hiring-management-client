@@ -21,7 +21,6 @@ export default function CrudCompanies() {
     const [state, setState] = useState("");
     const [show, setShow] = useState(false);
     const ref = useRef();
-    const [companyInfo, setCompanyInfo] = useState();
     const [toggleAnim, setToggleAnim] = useState(false);
     const [animateHide, setAnimateHide] = useState(true);
 
@@ -69,13 +68,6 @@ export default function CrudCompanies() {
             setData(res.data.rows);
             if(!selectCoName) {
                 setSelectCoName(res.data.rows[0].co_name);
-                setCompanyInfo(res.data.rows[0]);
-            } else {
-                for(let i = 0; i < res.data.rows.length; ++i) {
-                    if(res.data.rows[i].co_name === selectCoName) {
-                        setCompanyInfo(res.data.rows[i]);
-                    }
-                };
             }
         }).catch((error) => {
             console.log(error);
@@ -86,10 +78,7 @@ export default function CrudCompanies() {
         Axios.delete(`https://recruitment-co-management.onrender.com/company/delete/${event.target.id}`).then((res) => { 
             document.getElementById("message").style.color = "#007f0b";
             setMessage(res.data);
-            setCompanyInfo();
             getAllCo();
-        }).then(() => {
-            setCompanyInfo(data[0]);
         }).catch((error) => {
             console.log(error);
         });
@@ -226,11 +215,6 @@ export default function CrudCompanies() {
 
     const handleSelectChanged = (event) => {
         setSelectCoName(event.target.value);
-        for(let i = 0; i < data.length; ++i) {
-            if(data[i].co_name === ref.current.value) {
-                setCompanyInfo(data[i]);
-            }
-        };
     };
 
     return (
@@ -246,7 +230,7 @@ export default function CrudCompanies() {
                                 );
                             })}
                 </select>}
-                {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+                {data && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} companies = {data} companyName = {ref.current.value} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
             </div> : <div style = {{textAlign: "center"}}>
                 <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>
                 <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
