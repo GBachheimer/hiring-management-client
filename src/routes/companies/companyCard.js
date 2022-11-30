@@ -19,7 +19,7 @@ export default function CompanyCard(props) {
     });
 
     return (
-        <div className = {!props.animateHide ? "card px-3 cardStyle rotate-out-down-left" : props.toggleAnim ? "card px-3 cardStyle rotate-in-up-right" : "card px-3 cardStyle rotate-in-up-left"}>
+        companyInfo ? <div className = {!props.animateHide ? "card px-3 cardStyle rotate-out-down-left" : props.toggleAnim ? "card px-3 cardStyle rotate-in-up-right" : "card px-3 cardStyle rotate-in-up-left"}>
             <div className = "card-body">
                 <h5 className = "card-title">{companyInfo.co_name}</h5>
                 <p className = "card-text">{companyInfo.co_address}, {companyInfo.co_city}, {companyInfo.co_state}, {companyInfo.co_country}</p>
@@ -35,6 +35,6 @@ export default function CompanyCard(props) {
                 <Link className = "btn btn-dark cardBtn m-1" to = "/positions" state = {[companyInfo.co_name, companyInfo.co_id]}>Show all positions</Link>
                 <Link className = "btn btn-dark cardBtn m-1" to = "/overview" state = {companyInfo.co_name}>Show company on map</Link>
             </div>
-        </div>
+        </div> : null
     );
 }
