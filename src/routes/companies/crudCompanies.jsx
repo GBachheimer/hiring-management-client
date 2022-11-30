@@ -62,7 +62,7 @@ export default function CrudCompanies() {
     
     useEffect(() => {
         getAllCo();
-    }, []);
+    }, [show]);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
@@ -231,89 +231,92 @@ export default function CrudCompanies() {
 
     return (
         <div style = {{textAlign: "center"}}>
-            {!show && <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Add a new company</button>}
-            {show && <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>}
-            {show && <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
-                <label htmlFor = "companyName" className = "addCoLabel">Company Name*</label>
-                <input id = "co_name" className = "addCoInput" name = "companyName" type = "text" placeholder = "Example LLC" value = {companyName} onChange = {(event) => {setCompanyName(event.target.value)}} required></input>
-                <label htmlFor = "address" className = "addCoLabel">Address*</label>
-                <input className = "addCoInput" name = "address" type = "text" placeholder = "St. Peter 10" value = {address} onChange = {(event) => {setAddress(event.target.value)}} id = "address" required></input>
-                <label htmlFor = "city" className = "addCoLabel">City*</label>
-                <input id = "co_city" className = "addCoInput" name = "city" type = "text" placeholder = "London" value = {city} onChange = {(event) => {setCity(event.target.value)}} required></input>
-                <label htmlFor = "state" className = "addCoLabel">State / Province*</label>
-                <input id = "co_state" className = "addCoInput" name = "state" type = "text" placeholder = "Ilfov" value = {state} onChange = {(event) => {setState(event.target.value)}} required></input>
-                <label htmlFor = "country" className = "addCoLabel">Country*</label>
-                <select id = "co_country" className = "addCoInput" name = "country" onChange = {(event) => {setCountry(event.target.value)}} value = {country} required>
-                    <option value = ""></option>
-                    <option value = "United Kingdom">United Kingdom</option>
-                    <option value = "Albania">Albania</option>
-                    <option value = "Andorra">Andorra</option>
-                    <option value = "Austria">Austria</option>
-                    <option value = "Belarus">Belarus</option>
-                    <option value = "Belgium">Belgium</option>
-                    <option value = "Bosnia and Herzegovina">Bosnia and Herzegovina</option>
-                    <option value = "Bulgaria">Bulgaria</option>
-                    <option value = "Croatia">Croatia (Hrvatska)</option>
-                    <option value = "Cyprus">Cyprus</option>
-                    <option value = "Czech Republic">Czech Republic</option>
-                    <option value = "France">France</option>
-                    <option value = "Gibraltar">Gibraltar</option>
-                    <option value = "Germany">Germany</option>
-                    <option value = "Greece">Greece</option>
-                    <option value = "Holy See (Vatican City State)">Holy See (Vatican City State)</option>
-                    <option value = "Hungary">Hungary</option>
-                    <option value = "Italy">Italy</option>
-                    <option value = "Liechtenstein">Liechtenstein</option>
-                    <option value = "Luxembourg">Luxembourg</option>
-                    <option value = "Macedonia">Macedonia</option>
-                    <option value = "Malta">Malta</option>
-                    <option value = "Moldova">Moldova</option>
-                    <option value = "Monaco">Monaco</option>
-                    <option value = "Montenegro">Montenegro</option>
-                    <option value = "Netherlands">Netherlands</option>
-                    <option value = "Poland">Poland</option>
-                    <option value = "Poland">Portugal</option>
-                    <option value = "Romania">Romania</option>
-                    <option value = "San Marino">San Marino</option>
-                    <option value = "Serbia">Serbia</option>
-                    <option value = "Slovakia">Slovakia</option>
-                    <option value = "Slovenia">Slovenia</option>
-                    <option value = "Spain">Spain</option>
-                    <option value = "Ukraine">Ukraine</option>
-                    <option value = "Denmark">Denmark</option>
-                    <option value = "Estonia">Estonia</option>
-                    <option value = "Faroe Islands">Faroe Islands</option>
-                    <option value = "Finland">Finland</option>
-                    <option value = "Greenland">Greenland</option>
-                    <option value = "Iceland">Iceland</option>
-                    <option value = "Ireland">Ireland</option>
-                    <option value = "Latvia">Latvia</option>
-                    <option value = "Lithuania">Lithuania</option>
-                    <option value = "Norway">Norway</option>
-                    <option value = "Svalbard and Jan Mayen Islands">Svalbard and Jan Mayen Islands</option>
-                    <option value = "Sweden">Sweden</option>
-                    <option value = "Switzerland">Switzerland</option>
-                    <option value = "Turkey">Turkey</option>
-                </select>
-                <label htmlFor = "postalCode" className = "addCoLabel">Postal Code*</label>
-                <input id = "co_postal_code" className = "addCoInput" name = "postalCode" type = "text" placeholder = "10" value = {postalCode} onChange = {(event) => {setPostalCode(event.target.value)}} required></input>
-                <label htmlFor = "totalPositions" className = "addCoLabel">Total Positions*</label>
-                <input id = "co_total_positions" className = "addCoInput" name = "totalPositions" type = "text" placeholder = "329" value = {totalPositions} onChange = {(event) => {setTotalPositions(event.target.value)}} required></input>
-                <label htmlFor = "openPositions" className = "addCoLabel">Open Positions*</label>
-                <input id = "co_open_positions" className = "addCoInput" name = "openPositions" type = "text" placeholder = "23" value = {openPositions} onChange = {(event) => {setOpenPositions(event.target.value)}} required></input>
-                {!edit && <button id = "addCompanyBtn" className = "btn btn-light" onClick = {addCompany}>Add Company</button>}
-                {edit && <button id = "editCompanyBtn" className = "btn btn-light" onClick = {editCompany}>Save Company Info</button>}
-            </div>}
             <p id = "message">{message}</p>
-            {data && !show && <label className = "addCoLabel" htmlFor = "coName">Select a company:</label>}
-            {data && !show && <select className = {!animateHide ? "showCoCard addCoInput selectFieldStyle rotate-out-down-right" : !toggleAnim ? "showCoCard addCoInput selectFieldStyle rotate-in-up-right" : "showCoCard addCoInput selectFieldStyle rotate-in-up-left"} name = "coName" type = "text" ref = {ref} value = {selectCoName} onChange = {handleSelectChanged} id = "selectCoName">
-                    {data.map((company, key) => {
-                        return (
-                            <option key = {key} value = {company.co_name}>{company.co_name}</option>
-                            );
-                        })}
-            </select>}
-            {!show && companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+            {!show ? <div>
+                <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Add a new company</button>
+                {data && <label className = "addCoLabel" htmlFor = "coName">Select a company:</label>}
+                {data && <select className = {!animateHide ? "showCoCard addCoInput selectFieldStyle rotate-out-down-right" : !toggleAnim ? "showCoCard addCoInput selectFieldStyle rotate-in-up-right" : "showCoCard addCoInput selectFieldStyle rotate-in-up-left"} name = "coName" type = "text" ref = {ref} value = {selectCoName} onChange = {handleSelectChanged} id = "selectCoName">
+                        {data.map((company, key) => {
+                            return (
+                                <option key = {key} value = {company.co_name}>{company.co_name}</option>
+                                );
+                            })}
+                </select>}
+                {companyInfo && <CompanyCard key = {Math.random()} animateHide = {animateHide} toggleAnim = {toggleAnim} company = {companyInfo} handleEdit = {handleEdit} handleDelete ={handleDelete}></CompanyCard>}
+            </div> : <div>
+                <button className = "btn btn-light hideShowBtn" onClick = {handleShowHide}>Hide form</button>
+                <div id = "addCompanyContainer" className = {!animateHide ? "grow" : "shrink"}>
+                    <label htmlFor = "companyName" className = "addCoLabel">Company Name*</label>
+                    <input id = "co_name" className = "addCoInput" name = "companyName" type = "text" placeholder = "Example LLC" value = {companyName} onChange = {(event) => {setCompanyName(event.target.value)}} required></input>
+                    <label htmlFor = "address" className = "addCoLabel">Address*</label>
+                    <input className = "addCoInput" name = "address" type = "text" placeholder = "St. Peter 10" value = {address} onChange = {(event) => {setAddress(event.target.value)}} id = "address" required></input>
+                    <label htmlFor = "city" className = "addCoLabel">City*</label>
+                    <input id = "co_city" className = "addCoInput" name = "city" type = "text" placeholder = "London" value = {city} onChange = {(event) => {setCity(event.target.value)}} required></input>
+                    <label htmlFor = "state" className = "addCoLabel">State / Province*</label>
+                    <input id = "co_state" className = "addCoInput" name = "state" type = "text" placeholder = "Ilfov" value = {state} onChange = {(event) => {setState(event.target.value)}} required></input>
+                    <label htmlFor = "country" className = "addCoLabel">Country*</label>
+                    <select id = "co_country" className = "addCoInput" name = "country" onChange = {(event) => {setCountry(event.target.value)}} value = {country} required>
+                        <option value = ""></option>
+                        <option value = "United Kingdom">United Kingdom</option>
+                        <option value = "Albania">Albania</option>
+                        <option value = "Andorra">Andorra</option>
+                        <option value = "Austria">Austria</option>
+                        <option value = "Belarus">Belarus</option>
+                        <option value = "Belgium">Belgium</option>
+                        <option value = "Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                        <option value = "Bulgaria">Bulgaria</option>
+                        <option value = "Croatia">Croatia (Hrvatska)</option>
+                        <option value = "Cyprus">Cyprus</option>
+                        <option value = "Czech Republic">Czech Republic</option>
+                        <option value = "France">France</option>
+                        <option value = "Gibraltar">Gibraltar</option>
+                        <option value = "Germany">Germany</option>
+                        <option value = "Greece">Greece</option>
+                        <option value = "Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                        <option value = "Hungary">Hungary</option>
+                        <option value = "Italy">Italy</option>
+                        <option value = "Liechtenstein">Liechtenstein</option>
+                        <option value = "Luxembourg">Luxembourg</option>
+                        <option value = "Macedonia">Macedonia</option>
+                        <option value = "Malta">Malta</option>
+                        <option value = "Moldova">Moldova</option>
+                        <option value = "Monaco">Monaco</option>
+                        <option value = "Montenegro">Montenegro</option>
+                        <option value = "Netherlands">Netherlands</option>
+                        <option value = "Poland">Poland</option>
+                        <option value = "Poland">Portugal</option>
+                        <option value = "Romania">Romania</option>
+                        <option value = "San Marino">San Marino</option>
+                        <option value = "Serbia">Serbia</option>
+                        <option value = "Slovakia">Slovakia</option>
+                        <option value = "Slovenia">Slovenia</option>
+                        <option value = "Spain">Spain</option>
+                        <option value = "Ukraine">Ukraine</option>
+                        <option value = "Denmark">Denmark</option>
+                        <option value = "Estonia">Estonia</option>
+                        <option value = "Faroe Islands">Faroe Islands</option>
+                        <option value = "Finland">Finland</option>
+                        <option value = "Greenland">Greenland</option>
+                        <option value = "Iceland">Iceland</option>
+                        <option value = "Ireland">Ireland</option>
+                        <option value = "Latvia">Latvia</option>
+                        <option value = "Lithuania">Lithuania</option>
+                        <option value = "Norway">Norway</option>
+                        <option value = "Svalbard and Jan Mayen Islands">Svalbard and Jan Mayen Islands</option>
+                        <option value = "Sweden">Sweden</option>
+                        <option value = "Switzerland">Switzerland</option>
+                        <option value = "Turkey">Turkey</option>
+                    </select>
+                    <label htmlFor = "postalCode" className = "addCoLabel">Postal Code*</label>
+                    <input id = "co_postal_code" className = "addCoInput" name = "postalCode" type = "text" placeholder = "10" value = {postalCode} onChange = {(event) => {setPostalCode(event.target.value)}} required></input>
+                    <label htmlFor = "totalPositions" className = "addCoLabel">Total Positions*</label>
+                    <input id = "co_total_positions" className = "addCoInput" name = "totalPositions" type = "text" placeholder = "329" value = {totalPositions} onChange = {(event) => {setTotalPositions(event.target.value)}} required></input>
+                    <label htmlFor = "openPositions" className = "addCoLabel">Open Positions*</label>
+                    <input id = "co_open_positions" className = "addCoInput" name = "openPositions" type = "text" placeholder = "23" value = {openPositions} onChange = {(event) => {setOpenPositions(event.target.value)}} required></input>
+                    {!edit && <button id = "addCompanyBtn" className = "btn btn-light" onClick = {addCompany}>Add Company</button>}
+                    {edit && <button id = "editCompanyBtn" className = "btn btn-light" onClick = {editCompany}>Save Company Info</button>}
+                </div>
+            </div>}
             {window.innerWidth > 768 ? myVideo && <video id = "background-video" autoPlay muted>
                     <source src = {myVideo} type="video/mp4"></source>
             </video> : null }

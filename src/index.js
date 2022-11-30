@@ -11,7 +11,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Wrapper apiKey = {process.env.REACT_APP_MY_API_KEY} libraries={["places"]}>
+  <Wrapper apiKey = {process.env.REACT_APP_MY_API_KEY} libraries = {["places"]}>
     <AuthProvider>
       <AdminProvider>
         <BrowserRouter>
