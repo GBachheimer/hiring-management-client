@@ -30,6 +30,7 @@ export default function CrudCompanies() {
     }, [selectCoName]);
 
     useEffect(() => {
+        getAllCo();
         const addressField = document.getElementById("address");
         let autocomplete = new window.google.maps.places.Autocomplete(addressField);
         autocomplete.addListener("place_changed", () => {
