@@ -213,7 +213,7 @@ export default function PositionsTree() {
                             );
                         })}
                 </select>
-                <div className = "progress">
+                <div className = "progress progressPositions">
                     <div className = "progress-bar progress-bar-striped progressColor" role = "progressbar" aria-label = "Success striped example" style = {{width: `${progress}%`}} aria-valuenow = "25" aria-valuemin = "0" aria-valuemax = "100">{progress}%</div>
                 </div>
                 <div className = "row mx-2">

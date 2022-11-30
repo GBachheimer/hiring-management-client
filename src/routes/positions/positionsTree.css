@@ -123,7 +123,7 @@ textarea {
     to { transform: scale(1); }
 }
 
-.progress {
+.progressPositions {
     width: 50%;
     margin-top: 10px;
     margin-left: 25%;
