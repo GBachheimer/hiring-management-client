@@ -30,7 +30,6 @@ export default function CrudCompanies() {
     }, [selectCoName]);
 
     useEffect(() => {
-        getAllCo();
         const addressField = document.getElementById("address");
         let autocomplete = new window.google.maps.places.Autocomplete(addressField);
         autocomplete.addListener("place_changed", () => {
@@ -60,6 +59,10 @@ export default function CrudCompanies() {
             setAddress(streetNr);
         });
     }, [show]);
+
+    useEffect(() => {
+        getAllCo();
+    }, []);
 
     const getAllCo = () => {
         Axios.get("https://recruitment-co-management.onrender.com/company/list").then((res) => {
