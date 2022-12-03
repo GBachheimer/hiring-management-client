@@ -4,8 +4,7 @@ import positions from "./resources/positions.png";
 import company from "./resources/company.png";
 import admin from "./resources/admin.png";
 
-
-export default function GeneralPrezentation() {
+export default function GeneralPrezentation(props) {
     return (
         <div className = "prezentationCoantainer">
             <div>
