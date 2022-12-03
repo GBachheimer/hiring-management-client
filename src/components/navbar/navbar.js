@@ -37,7 +37,7 @@ export default function Navbar(props) {
             </nav> :
             <nav className = "navbar navbar-dark bg-dark">
                 <div className = "container-fluid">
-                    <a className = "navbar-brand" href="#">Menu</a>
+                <NavLink className = "navbar-brand mx-2 p-1" to = "/" style = {{fontSize: "0.8rem"}}>Home</NavLink>
                     <button className = "navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                         <span className = "navbar-toggler-icon"></span>
                     </button>
