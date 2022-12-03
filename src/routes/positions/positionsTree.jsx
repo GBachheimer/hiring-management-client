@@ -55,7 +55,7 @@ export default function PositionsTree() {
                     ++totalOccupiedPositions;
                 }
             };
-            if (parseInt(totalOccupiedPositions * 100 / res.data.rows.length) !== NaN) { 
+            if (!parseInt(totalOccupiedPositions * 100 / res.data.rows.length) || parseInt(totalOccupiedPositions * 100 / res.data.rows.length) !== 0) { 
                 setProgress(parseInt(totalOccupiedPositions * 100 / res.data.rows.length));
             } else {
                 setProgress(0);

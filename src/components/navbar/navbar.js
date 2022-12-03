@@ -28,7 +28,7 @@ export default function Navbar(props) {
                 </div>}
                 {user && user.emailVerified && <div>
                     <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/overview">Overview</NavLink>
-                    <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/statistics">Statistics</NavLink>
+                    {/* <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/statistics">Statistics</NavLink> */}
                     {admin && <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/positions">Positions</NavLink>}
                     {admin && <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/companies">Companies</NavLink>}
                     {admin && <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/admins">Admins</NavLink>}
@@ -53,7 +53,7 @@ export default function Navbar(props) {
                             </ul>}
                             {user && user.emailVerified && <ul className = "navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/overview">Overview</NavLink>
-                                <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/statistics">Statistics</NavLink>
+                                {/* <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/statistics">Statistics</NavLink> */}
                                 {admin && <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/positions">Positions</NavLink>}
                                 {admin && <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/companies">Companies</NavLink>}
                                 {admin && <NavLink className = "buttonStyleNavbar mx-2 p-1" to = "/admins">Admins</NavLink>}

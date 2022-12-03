@@ -58,7 +58,7 @@ export default function GoogleMapsInfo(props) {
               }
             };
             progress = parseInt(100 * occupiedPositions / res.data.rows.length);
-            if (progress === NaN) {
+            if (!progress || progress === 0) {
               progress = 0;
             };
           };
