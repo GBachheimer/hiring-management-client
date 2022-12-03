@@ -55,8 +55,9 @@ export default function PositionsTree() {
                     ++totalOccupiedPositions;
                 }
             };
-            if (!parseInt(totalOccupiedPositions * 100 / res.data.rows.length) || parseInt(totalOccupiedPositions * 100 / res.data.rows.length) !== 0) { 
-                setProgress(parseInt(totalOccupiedPositions * 100 / res.data.rows.length));
+            let preogressBar = parseInt(totalOccupiedPositions * 100 / res.data.rows.length);
+            if (preogressBar && preogressBar > 0) { 
+                setProgress(preogressBar);
             } else {
                 setProgress(0);
             }
@@ -223,7 +224,7 @@ export default function PositionsTree() {
                 <div className = "row mx-2">
                     {positions.map((position, id) => {
                         return (
-                            <div key = {Math.random()} className = {!animate ? "col-sm-4 grow" : "col-sm-4 shrink"}>
+                            <div className = {!animate ? "col-sm-4 grow" : "col-sm-4 shrink"}>
                                 <PositionsCard position = {position} handleEdit = {handleEdit} handleDelete = {handleDelete}></PositionsCard>
                             </div>
                         );
