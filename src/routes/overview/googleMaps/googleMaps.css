@@ -30,10 +30,6 @@
     font-weight: bold;
 }
 
-@media only screen and (max-width: 600px) {
-
-}
-
 .infoWindowFreePos {
     color: rgb(13, 151, 0);
     font-weight: bold;
@@ -42,13 +38,6 @@
 .infoWindowOccupiedPos {
     color: #ff0000;
     font-weight: bold;
-}
-
-.progressMaps {
-    border: 1px solid black;
-    margin-top: -15px;
-    margin-bottom: 10px;
-    width: 100%;
 }
 
 .fade-in-down {

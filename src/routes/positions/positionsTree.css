@@ -8,18 +8,15 @@
 .addDeadlineLabel {
     margin-top: 5px;
     margin-bottom: 2px;
+    font-size: 0.6rem;
 }
 
-@media only screen and (max-width: 600px) {
-    .progress {
-        width: 90%;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-left: 5%;
-    }
+#tableBody {
+    font-size: 0.6rem;
 }
 
 .addDeadlineInput {
+    font-size: 0.6rem;
     display: block;
     width: 300px;
     color: rgb(255, 255, 255);
@@ -37,16 +34,18 @@ textarea {
 
 #addPosContainer {
     width: 100%;
+    font-size: 0.6rem;
     text-align: center;
     color: white;
 }
 
 #selectCoInput {
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: -25px;
 }
 
 .addPositionInput {
+    font-size: 0.6rem;
     display: block;
     width: 300px;
     border-radius: 10px;
@@ -61,9 +60,11 @@ textarea {
 .addPositionLabel {
     margin-top: 5px;
     margin-bottom: 2px;
+    font-size: 0.6rem;
 }
 
 .addPosBtn {
+    font-size: 0.6rem;
     margin-top: 10px;
 }
 
@@ -73,9 +74,11 @@ textarea {
     text-decoration: none;
     color: #f7adff;
     text-align: center;
+    font-size: 0.6rem;
 }
 
 .showFormBtn {
+    font-size: 0.6rem;
     margin-top: 10px;
 }
 
@@ -83,6 +86,7 @@ textarea {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     margin: 2px;
+    font-size: 0.6rem;
     border: none;
 }
 
@@ -95,6 +99,15 @@ textarea {
 	33% { transform: rotate(1deg); }	
 	66% { transform: rotate(-1deg); }	
 	100% { transform: rotate(0deg); }
+}
+
+.magnifyInfo {
+    font-size: 0.6rem;
+    transition: font-size 0.5s;
+}
+
+.magnifyInfo:hover {
+    font-size: 0.7rem;
 }
 
 .listStyle {
@@ -122,13 +135,6 @@ textarea {
 @keyframes grow {
     from { transform: scale(0); }
     to { transform: scale(1); }
-}
-
-.progressPositions {
-    width: 50%;
-    margin-top: 10px;
-    margin-left: 25%;
-    margin-bottom: 10px;
 }
 
 .progressColor {
