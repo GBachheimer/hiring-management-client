@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth} from "../../components/firebase";
 import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
@@ -39,10 +39,10 @@ export default function Login() {
             if (!userCredential.user.emailVerified) {
                 setMessage("Please verify your email!");
                 setOpen(true);
+                signOut(auth);
                 return;
             };
             navigate("/overview");
-            window.location.reload();
         })
         .catch((error) => {
             const errorCode = error.code;
