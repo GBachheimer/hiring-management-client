@@ -42,6 +42,7 @@ export default function Login() {
                 return;
             };
             navigate("/overview");
+            location.reload();
         })
         .catch((error) => {
             const errorCode = error.code;
