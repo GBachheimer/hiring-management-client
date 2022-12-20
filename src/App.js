@@ -32,8 +32,8 @@ function App() {
           {user && <Route element = {<PositionsTree/>} path = "/positions"/>}
           {user && <Route element = {<Statistics/>} path = "/statistics"/>}
           {user && <Route element = {<Overview/>} path = "/overview"/>}
-          {user && admin && <Route element = {<CrudCompanies/>} path = "/companies"/>}
-          {user && admin && <Route element = {<Admin/>} path = "/admins"/>}
+          {user && /*admin &&*/ <Route element = {<CrudCompanies/>} path = "/companies"/>}
+          {user && /*admin &&*/ <Route element = {<Admin/>} path = "/admins"/>}
         </Routes>
     </div>
   );
