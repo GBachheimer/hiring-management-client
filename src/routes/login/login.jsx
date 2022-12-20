@@ -38,8 +38,9 @@ export default function Login() {
         .then((userCredential) => {
             if (!userCredential.user.emailVerified) {
                 setMessage("Please verify your email!");
+                setOpen(true);
                 return;
-            }
+            };
             navigate("/overview");
         })
         .catch((error) => {
