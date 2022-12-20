@@ -131,10 +131,9 @@ export default function PositionsTree() {
         });
     };
 
-    const handleEdit = (event) => {
+    const handleEdit = (id) => {
+        setId(id);
         setEdit(true);
-        setId(event.target.id);
-        console.log(id);
         determineShowHide();
         for(let i = 0; i < positions.length; ++i) {
             if(positions[i].pos_id === parseInt(event.target.id)) {
@@ -155,7 +154,7 @@ export default function PositionsTree() {
         };
     };
 
-    const handleSaveEdit = (event) => {
+    const handleSaveEdit = (id) => {
         Axios.put("https://recruitment-co-management.onrender.com/positions/edit/" + id, {
             position: position,
             description: description,
@@ -173,8 +172,8 @@ export default function PositionsTree() {
         });
     };
 
-    const handleDelete = (event) => {
-        Axios.delete("https://recruitment-co-management.onrender.com/positions/delete/" + event.target.id).then((res) => {
+    const handleDelete = (id) => {
+        Axios.delete("https://recruitment-co-management.onrender.com/positions/delete/" + id).then((res) => {
             setMessage(res.data);
             setSeverity("success");
             setOpen(true);

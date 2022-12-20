@@ -5,6 +5,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 export default function AddNewPositionForm(props) {
+    const id = props.posId;
+
     return(
         <Grow in = {!props.animate}>
         <Grid item sx = {{margin: "auto"}}>
@@ -63,8 +65,8 @@ export default function AddNewPositionForm(props) {
                     <FormControlLabel value = "Yes" control = {<Radio sx = {{display: "inline"}}/>} label = "Yes" />
                 </RadioGroup>
             </FormControl>}
-            {!props.edit && <Button startIcon = {<PersonAddIcon />} variant = "contained" id = {props.posId} sx = {{marginTop: "2%", width: "100%"}} onClick = {props.handleAddPosition}>Add position to {props.coName}</Button>}
-            {props.edit && <Button startIcon = {<PersonAddIcon />} variant = "contained" id = {props.posId} sx = {{marginTop: "2%", width: "100%"}} onClick = {props.handleSaveEdit}>Save</Button>}
+            {!props.edit && <Button startIcon = {<PersonAddIcon />} variant = "contained" sx = {{marginTop: "2%", width: "100%"}} onClick = {() => props.handleAddPosition(id)}>Add position to {props.coName}</Button>}
+            {props.edit && <Button startIcon = {<PersonAddIcon />} variant = "contained" sx = {{marginTop: "2%", width: "100%"}} onClick = {() => props.handleSaveEdit(id)}>Save</Button>}
         </Grid>
         </Grow>
     );

@@ -32,6 +32,10 @@ export default function CrudCompanies() {
 
     useEffect(() => {
         getAllCo();
+        setGrowAnim(false);
+        setTimeout(() => {
+            setGrowAnim(true);
+        }, 200);
     }, [value]);
 
     useEffect(() => {

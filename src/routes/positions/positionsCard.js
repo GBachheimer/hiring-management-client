@@ -7,6 +7,7 @@ import LaunchIcon from '@mui/icons-material/Launch';
 
 export default function PositionsCard(props) {
     const [expanded, setExpanded] = useState(false);
+    const id = props.position.pos_id;
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
@@ -43,8 +44,8 @@ export default function PositionsCard(props) {
                         Deadline: {props.position.pos_deadline.slice(0, 10)}
                     </Typography>}
                     {props.position.pos_deadline && <Divider sx = {{mt: 1}} />}
-                    <Button endIcon = {<ModeEditIcon/>} variant = "outlined" id = {props.position.pos_id} onClick = {props.handleEdit} sx = {{minWidth: "30%", m: 1, color: "white"}}>Edit</Button>
-                    <Button endIcon = {<DeleteIcon/>} variant = "outlined" id = {props.position.pos_id} onClick = {props.handleDelete} sx = {{minWidth: "30%", m: 1, color: "white"}}>Delete</Button>
+                    <Button endIcon = {<ModeEditIcon/>} variant = "outlined" onClick = {() => props.handleEdit(id)} sx = {{minWidth: "30%", m: 1, color: "white"}}>Edit</Button>
+                    <Button endIcon = {<DeleteIcon/>} variant = "outlined" onClick = {() => props.handleDelete(id)} sx = {{minWidth: "30%", m: 1, color: "white"}}>Delete</Button>
                     {props.position.pos_link && <Button endIcon = {<LaunchIcon/>} variant = "outlined" onClick = {() => handleNavigate(props.position.pos_link)} sx = {{minWidth: "30%", mx: 1, my: 2, color: "white"}}>Position announcement</Button>}
                 </AccordionDetails>
             </Accordion>
