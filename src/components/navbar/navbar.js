@@ -33,8 +33,8 @@ export default function Navbar(props) {
     // const {admin} = useContext(AdminContext);
     const navigate = useNavigate();
 
-    const pages = user ? ["Overview", "Positions", "Companies", "Admins"] : ["Sign up", "Login"];
-    const icons = user ? [<VisibilityIcon sx = {{mr: 1}}/>, <EngineeringIcon sx = {{mr: 1}}/>, <BusinessIcon sx = {{mr: 1}} />, <AdminPanelSettingsIcon sx = {{mr: 1}} /> ] : [<PersonAddAltIcon sx = {{mr: 1}} />, <LoginIcon sx = {{mr: 1}} />];
+    const pages = user && user.emailVerified ? ["Overview", "Positions", "Companies", "Admins"] : ["Sign up", "Login"];
+    const icons = user && user.emailVerified ? [<VisibilityIcon sx = {{mr: 1}}/>, <EngineeringIcon sx = {{mr: 1}}/>, <BusinessIcon sx = {{mr: 1}} />, <AdminPanelSettingsIcon sx = {{mr: 1}} /> ] : [<PersonAddAltIcon sx = {{mr: 1}} />, <LoginIcon sx = {{mr: 1}} />];
 
     const handleLogout = () => {
         signOut(auth);

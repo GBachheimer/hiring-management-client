@@ -33,7 +33,7 @@ export default function GoogleMapsInfo(props) {
           map: map
         });
 
-        if (marker.getAnimation() != null) {
+        if (marker.getAnimation() !== null) {
           marker.setAnimation(null);
         } else {
           marker.setAnimation(window.google.maps.Animation.DROP);

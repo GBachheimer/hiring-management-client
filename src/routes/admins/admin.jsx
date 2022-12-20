@@ -1,5 +1,4 @@
 import { useState, useContext, useEffect } from "react";
-import "./admin.css";
 import { AuthContext } from "../../components/userContext";
 import { getDocs, collection, updateDoc, doc, query, where, getDoc } from "firebase/firestore";
 import { db } from "../../components/firebase";

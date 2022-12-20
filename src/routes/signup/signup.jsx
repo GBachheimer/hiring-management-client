@@ -5,7 +5,6 @@ import { Grid } from "@mui/material";
 import FormTemplate from "../../components/formTemplate";
 import { saveUserToFirestore } from "../..";
 import SnackbarTemplate from "../../components/snackbarTemplate";
-import "./signup.css";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");

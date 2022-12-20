@@ -29,11 +29,11 @@ function App() {
           <Route element = {<GeneralPrezentation/>} path = "/"/>
           <Route element = {<WrongPage/>} path = "*"/>
           <Route element = {<ResetPassword/>} path = "/resetPassword"/>
-          {user && <Route element = {<PositionsTree/>} path = "/positions"/>}
-          {user && <Route element = {<Statistics/>} path = "/statistics"/>}
-          {user && <Route element = {<Overview/>} path = "/overview"/>}
-          {user && /*admin &&*/ <Route element = {<CrudCompanies/>} path = "/companies"/>}
-          {user && /*admin &&*/ <Route element = {<Admin/>} path = "/admins"/>}
+          {user && user.emailVerified && <Route element = {<PositionsTree/>} path = "/positions"/>}
+          {user && user.emailVerified && <Route element = {<Statistics/>} path = "/statistics"/>}
+          {user && user.emailVerified && <Route element = {<Overview/>} path = "/overview"/>}
+          {user && user.emailVerified && /*admin &&*/ <Route element = {<CrudCompanies/>} path = "/companies"/>}
+          {user && user.emailVerified && /*admin &&*/ <Route element = {<Admin/>} path = "/admins"/>}
         </Routes>
     </div>
   );

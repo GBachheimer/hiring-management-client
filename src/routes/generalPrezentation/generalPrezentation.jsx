@@ -14,7 +14,7 @@ export default function GeneralPrezentation() {
             <Grid container item xs = {12} md = {10} sx = {{margin: "auto", textAlign: "center", my: 5}}>
                 <Zoom in = {true} style = {{ transitionDelay: '400ms'}}>
                     <Grid item xs = {10} md = {4} sx = {{margin: "auto"}}>
-                        <img src = {map} width = "300px" className = "swing"></img>
+                        <img alt = "map" src = {map} width = "300px" className = "swing"></img>
                     </Grid>
                 </Zoom>
                 <Slide direction = "left" in = {true} mountOnEnter unmountOnExit timeout = {600}>
@@ -45,14 +45,14 @@ export default function GeneralPrezentation() {
                 </Slide>
                 <Zoom in = {true} style = {{ transitionDelay: '400ms'}}>
                     <Grid md = {4} sx = {{margin: "auto", my: 2}}>
-                        <img src = {company} width = "300px"></img>
+                        <img alt = "company" src = {company} width = "300px"></img>
                     </Grid>
                 </Zoom>
             </Grid>
             <Grid container item xs = {12} md = {10} sx = {{margin: "auto", textAlign: "center", my: 5}}>
                 <Zoom in = {true} style = {{ transitionDelay: '1000ms'}}>
                     <Grid item xs = {10} md = {4} sx = {{margin: "auto", my: 2}}>
-                        <img src = {positions} width = "300px"></img>
+                        <img alt = "positions" src = {positions} width = "300px"></img>
                     </Grid>
                 </Zoom>
                 <Slide direction = "left" in = {true} mountOnEnter unmountOnExit timeout = {600}>
@@ -81,7 +81,7 @@ export default function GeneralPrezentation() {
                 </Slide>
                 <Zoom in = {true} style = {{ transitionDelay: '1500ms'}}>
                     <Grid item xs = {10} md = {4} sx = {{margin: "auto", my: 2}}>
-                        <img src = {admin} width = "300px"></img>
+                        <img alt = "admin" src = {admin} width = "300px"></img>
                     </Grid>
                 </Zoom>
             </Grid>

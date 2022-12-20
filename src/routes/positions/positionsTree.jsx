@@ -209,7 +209,7 @@ export default function PositionsTree() {
         <Grid container sx = {{textAlign: "center"}}>
             {!showAddForm && <Grid item xs = {12}>
                 <Zoom in = {animate}>
-                    <img src = {background} width = "300px" style = {{marginTop: "2%"}}></img>
+                    <img alt = "positions" src = {background} width = "300px" style = {{marginTop: "2%"}}></img>
                 </Zoom>
             </Grid>}
             {!showAddForm && 
