@@ -136,7 +136,7 @@ export default function PositionsTree() {
         setEdit(true);
         determineShowHide();
         for(let i = 0; i < positions.length; ++i) {
-            if(positions[i].pos_id === parseInt(event.target.id)) {
+            if(positions[i].pos_id === parseInt(id)) {
                 setPosition(positions[i].pos_name);
                 if(positions[i].pos_description) {
                     setDescription(positions[i].pos_description);
